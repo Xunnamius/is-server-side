@@ -1,27 +1,7 @@
 {
   "name": "is-server-side",
+  "version": "1.0.2",
   "description": "Quickly determine if code is executing on the client or on the server with SSR/SSG",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Xunnamius/is-server-side"
-  },
-  "scripts": {
-    "build": "npm run clean && tsc --project tsconfig.types.json && NODE_ENV=production webpack -p && babel src --extensions .ts --out-dir dist/modules",
-    "clean": "rm -rf dist",
-    "test": "BABEL_ENV=test jest",
-    "list-tasks": "npm run",
-    "repl": "command -v rlwrap >/dev/null && rlwrap npx -p @babel/core -p @babel/node babel-node",
-    "check-types": "command -v unbuffer >/dev/null && (unbuffer tsc; unbuffer eslint .) | less -R -FX || (tsc; eslint .)",
-    "prepublishOnly": "npm test && npm run build",
-    "postpublish": "npm run clean"
-  },
-  "version": "1.0.1",
-  "author": "Xunnamius",
-  "license": "Unlicense",
-  "main": "dist/umd.js",
-  "module": "dist/modules/index.js",
-  "types": "dist/modules/index.d.ts",
-  "sideEffects": false,
   "keywords": [
     "ssr",
     "ssg",
@@ -33,12 +13,32 @@
     "client",
     "detect"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xunnamius/is-server-side"
+  },
+  "license": "Unlicense",
+  "author": "Xunnamius",
+  "sideEffects": false,
+  "main": "dist/umd.js",
+  "module": "dist/modules/index.js",
+  "types": "dist/modules/index.d.ts",
   "files": [
     "/dist",
     "/LICENSE",
     "/package.json",
     "/README.md"
   ],
+  "scripts": {
+    "build": "npm run clean && tsc --project tsconfig.types.json && NODE_ENV=production webpack -p && babel src --extensions .ts --out-dir dist/modules",
+    "check-types": "command -v unbuffer >/dev/null && (unbuffer tsc; unbuffer eslint .) | less -R -FX || (tsc; eslint .)",
+    "clean": "rm -rf dist",
+    "list-tasks": "npm run",
+    "prepublishOnly": "npm test && npm run build",
+    "postpublish": "npm run clean",
+    "repl": "command -v rlwrap >/dev/null && rlwrap npx -p @babel/core -p @babel/node babel-node",
+    "test": "BABEL_ENV=test jest"
+  },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
@@ -54,6 +54,9 @@
     "@babel/plugin-transform-react-jsx-source": "^7.10.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@types/confusing-browser-globals": "^1.0.0",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
     "@types/webpack": "^4.41.22",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
@@ -74,9 +77,6 @@
     "source-map-support": "^0.5.19",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
-    "@types/confusing-browser-globals": "^1.0.0",
-    "@types/jest": "^26.0.14",
-    "@types/node": "^14.11.2"
+    "webpack-cli": "^3.3.12"
   }
 }
