@@ -1,8 +1,11 @@
 {
   "name": "is-server-side",
-  "version": "1.0.2",
-  "description": "Quickly determine if code is executing on the client or on the server with SSR/SSG",
+  "version": "1.0.3",
+  "description": "⛔️ [DEPRECATED] Quickly determine if code is executing on the client or on the server with SSR/SSG",
   "keywords": [
+    "deprecated",
+    "obsolete",
+    "archived",
     "ssr",
     "ssg",
     "next",
